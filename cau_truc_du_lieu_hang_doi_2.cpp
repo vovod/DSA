@@ -7,30 +7,45 @@ using namespace std;
 typedef long long ll;
 int main()
 {
-    string s;
+    int t;
+    cin >> t;
     vector<int> st;
-    while (cin >> s)
+    while (t--)
     {
+        string s;
+        cin >> s;
         int n;
-        if (s == "push")
+        if (s == "PUSH")
         {
             cin >> n;
             st.push_back(n);
         }
-        else if (s == "pop")
+        else if (s == "POP")
         {
-            st.pop_back();
+            if (st.size() != 0)
+                st.erase(st.begin());
         }
-        else if (s == "show")
+        else if (s == "PRINTFRONT")
         {
             if (st.size() == 0)
-                cout << "empty" << endl;
+                cout << "NONE" << endl;
             else
             {
-                for (int i = 0; i < st.size(); i++)
-                    cout << st[i] << " ";
+                cout << st[0];
                 cout << endl;
             }
         }
     }
 }
+/*
+9
+PUSH 1
+PUSH 2
+POP
+PRINTFRONT
+PUSH 3
+PRINTFRONT
+POP
+POP
+PRINTFRONT
+*/
