@@ -13,21 +13,19 @@ int main()
     cin >> t;
     while (t--)
     {
-        int n, k;
-        cin >> n >> k;
-        map<int, int> mp;
+        int n;
+        cin >> n;
         for (int i = 0; i < n; i++)
-        {
             cin >> a[i];
-            mp[a[i]]++;
-        }
-        long long ans = 0;
-        for (int i = 0; i < n; i++)
+        int d = -1;
+        for (int i = 0; i < n - 1; i++)
         {
-            ans += mp[k - a[i]];
-            if (a[i] * 2 == k)
-                ans--;
+            if (a[i] > a[i + 1])
+                d = i;
         }
-        cout << ans / 2 << endl;
+        if (d == -1)
+            cout << "0\n";
+        else
+            cout << d + 1 << endl;
     }
 }
